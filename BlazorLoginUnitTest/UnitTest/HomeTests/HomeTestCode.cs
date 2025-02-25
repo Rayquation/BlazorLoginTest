@@ -17,6 +17,22 @@ public class AuthenticationTests
         _userManagerMock = new Mock<UserManager<ApplicationUser>>(userStoreMock.Object, null, null, null, null, null, null, null, null);
         _authStateProviderMock = new Mock<AuthenticationStateProvider>();
     }
+    [Fact]
+    public async Task NotAuthenticatedUserCode()
+    {
+        // Arrange
+        var identity = new ClaimsIdentity(); // No claims, not authenticated
+        var user = new ClaimsPrincipal(identity);
+        var authState = new AuthenticationState(user);
+
+        _authStateProviderMock.Setup(a => a.GetAuthenticationStateAsync()).ReturnsAsync(authState);
+
+        // Act
+        var isAuthenticated = user.Identity.IsAuthenticated;
+
+        // Assert
+        Assert.False(isAuthenticated);
+    }
 
     [Fact]
     public async Task AuthenticatedUserCode()
@@ -48,21 +64,5 @@ public class AuthenticationTests
 
         // Assert
         Assert.True(isAdmin);
-    }
-    [Fact]
-    public async Task NotAuthenticatedUserCode()
-    {
-        // Arrange
-        var identity = new ClaimsIdentity(); // No claims, not authenticated
-        var user = new ClaimsPrincipal(identity);
-        var authState = new AuthenticationState(user);
-
-        _authStateProviderMock.Setup(a => a.GetAuthenticationStateAsync()).ReturnsAsync(authState);
-
-        // Act
-        var isAuthenticated = user.Identity.IsAuthenticated;
-
-        // Assert
-        Assert.False(isAuthenticated);
     }
 }
