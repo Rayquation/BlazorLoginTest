@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLoginTest", "BlazorLoginTest\BlazorLoginTest.csproj", "{30E69CC9-B28C-4315-BC16-2FB8A1EA7663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLoginUnitTest", "BlazorLoginUnitTest\BlazorLoginUnitTest.csproj", "{7E9FEE79-004A-4F75-8D86-930F86214784}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{30E69CC9-B28C-4315-BC16-2FB8A1EA7663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30E69CC9-B28C-4315-BC16-2FB8A1EA7663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30E69CC9-B28C-4315-BC16-2FB8A1EA7663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9FEE79-004A-4F75-8D86-930F86214784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9FEE79-004A-4F75-8D86-930F86214784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9FEE79-004A-4F75-8D86-930F86214784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9FEE79-004A-4F75-8D86-930F86214784}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
