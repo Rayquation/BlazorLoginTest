@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
-namespace BlazorLoginUnitTest.UnitTest
+namespace BlazorLoginUnitTest.UnitTest.HomeTests
 {
-    public class HomeTests : TestContext
+    public class HomeTestView : TestContext
     {
         [Fact]
-        public void NotAuthenticatedUser()
+        public void NotAuthenticatedUserView()
         {
             // Arrange
             var authContext = this.AddTestAuthorization();
@@ -22,10 +22,10 @@ namespace BlazorLoginUnitTest.UnitTest
             var cut = RenderComponent<Home>();
 
             // Assert
-            cut.MarkupMatches("        <div>\r\n            <p>You are NOT logged in</p>\r\n        </div>");
+            cut.MarkupMatches("        <div>\r\n            <p>You are NOT logged in</p>\r\n        </div>         <div>\r\n            <p>You are NOT logged in as Admin</p>\r\n        </div>");
         }
         [Fact]
-        public void AuthenticatedUser()
+        public void AuthenticatedUserView()
         {
             // Arrange
             var authContext = this.AddTestAuthorization();
@@ -35,10 +35,10 @@ namespace BlazorLoginUnitTest.UnitTest
             var cut = RenderComponent<Home>();
 
             // Assert
-            cut.MarkupMatches("        <div>\r\n            <p>You are logged in as User</p>\r\n        </div>");
+            cut.MarkupMatches("        <div>\r\n            <p>You are logged in as User</p>\r\n        </div>         <div>\r\n            <p>You are NOT logged in as Admin</p>\r\n        </div>");
         }
         [Fact]
-        public void AuthenticatedUserAdmin()
+        public void AuthenticatedUserAdminView()
         {
             // Arrange
             var authContext = this.AddTestAuthorization();
