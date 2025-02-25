@@ -34,6 +34,7 @@
 
 @code {
     private bool isAdmin;
+    private bool isAuthenticated;
 
     protected override async Task OnInitializedAsync()
     {
@@ -43,6 +44,7 @@
         if (user.Identity.IsAuthenticated)
         {
             var appUser = await UserManager.GetUserAsync(user);
+            isAuthenticated = user.Identity.IsAuthenticated;
             isAdmin = await UserManager.IsInRoleAsync(appUser, "Admin");
         }
     }
